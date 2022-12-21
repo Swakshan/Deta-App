@@ -50,6 +50,7 @@ class _ProjectsState extends State<Projects> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: true,
       backgroundColor: Theme.of(context).primaryColor,
       appBar: buildAppBar(context, PROJECTS_TITLE),
       body: RefreshIndicator(
@@ -241,8 +242,9 @@ class _ProjectsState extends State<Projects> {
       ),
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: Column(
+
             mainAxisSize: MainAxisSize.min,
             children: [
               const Padding(

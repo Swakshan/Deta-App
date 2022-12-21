@@ -36,6 +36,7 @@ class _AllUsersState extends State<AllUsers> {
   Widget build(BuildContext context) {
     // checkVersion(context);
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: Theme.of(context).primaryColor,
       appBar: buildAppBar(context, ALL_USER_TITLE),
       body: FutureBuilder(
@@ -163,7 +164,7 @@ class _AllUsersState extends State<AllUsers> {
       ),
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
