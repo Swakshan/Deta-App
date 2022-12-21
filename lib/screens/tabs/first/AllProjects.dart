@@ -80,7 +80,7 @@ class _ProjectsState extends State<Projects> {
           },
         ),
       ),
-      floatingActionButton: fab(),
+
     );
   }
 

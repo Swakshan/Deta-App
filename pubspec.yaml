@@ -65,7 +65,7 @@ flutter_icons:
   ios: true
 
 flutter_native_splash:
-  image: lib/assets/images/deta.ico
+  image: lib/assets/images/deta.png
   color: "#f06292"
 
 dev_dependencies:
@@ -81,8 +81,6 @@ flutter:
   assets:
     - lib/assets/
     - lib/assets/images/deta.png
-    - lib/assets/images/deta.svg
-    - lib/assets/images/deta.ico
     - lib/assets/lottie/green-pulse-dot.json
 
   # The following line ensures that the Material Icons font is

@@ -13,7 +13,6 @@ Disclaimer: All the data fetched are stored internally
 ## Features
 
 - Supports Multiple accounts
-- Create projects and micros
 - Create and Save Token
 - Access micro details
 - Create Domains
