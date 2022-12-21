@@ -183,6 +183,7 @@ List<String> THEMES_NAME_ARR = ["Pink","Purple"];
 //my APIs
 const String MY_API_URL = "https://api-deta-apk.deta.dev";
 const String LATEST_UPD_URI = "${MY_API_URL}/updates/latest";
+const String SPECIFIC_UPD_URI = "${MY_API_URL}/updates/version/";
 
 //APIs
 const String BASE_API_URL = "v1.deta.sh";

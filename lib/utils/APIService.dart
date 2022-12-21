@@ -559,19 +559,43 @@ class DetaStatusAPI {
 }
 
 class MyAPI {
-  Future<UpdateModel?> latestVersion(bool fromApi) async {
+  Future<UpdateModel?> latestVersion() async {
     UpdateDB updateDB = UpdateDB();
     try {
-      if (fromApi) {
-        String api = LATEST_UPD_URI;
+
+      String api = LATEST_UPD_URI;
+      Uri uri = Uri.parse(api);
+      var response = await requester(uri, "GET", null, null);
+      int statusCode = response[0] ~/ 100;
+      var data = response[1];
+      if (statusCode == 2) {
+        return UpdateModel.fromJson(data);
+        // await updateDB.set(BOX_UPD_INFO, jsonToString(data));
+      }
+
+    } catch (e) {
+      //print(e);
+    }
+    var data = await updateDB.get(BOX_UPD_INFO);
+    return UpdateModel.fromJson(data);
+  }
+
+  Future<UpdateModel?> specificVersion(String version) async {
+    UpdateDB updateDB = UpdateDB();
+    try {
+      var data = await updateDB.get(BOX_UPD_INFO);
+      if(data!=null){
+        return UpdateModel.fromJson(data);
+      }
+        String api = SPECIFIC_UPD_URI+version;
         Uri uri = Uri.parse(api);
         var response = await requester(uri, "GET", null, null);
         int statusCode = response[0] ~/ 100;
-        var data = response[1];
+        data = response[1];
         if (statusCode == 2) {
           await updateDB.set(BOX_UPD_INFO, jsonToString(data));
         }
-      }
+
     } catch (e) {
       //print(e);
     }

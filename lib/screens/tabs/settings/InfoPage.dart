@@ -73,14 +73,14 @@ class _InfoPageState extends State<InfoPage> {
               ButtonBar(
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      checkVersion(context, false);
+                    onPressed: () async{
+                      await checkVersion(context,true);
                     },
                     child: const Text(BTN_CHANGELOGS),
                   ),
                   ElevatedButton(
                     onPressed: () async {
-                      bool cond = await checkVersion(context, true);
+                      bool cond = await checkVersion(context,false);
                       if (!cond) {
                         toaster(context, NO_UPDATE);
                       }

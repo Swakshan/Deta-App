@@ -70,13 +70,7 @@ class _AllUsersState extends State<AllUsers> {
     detaname_controller = TextEditingController();
     spaceid_controller = TextEditingController();
     role_controller = TextEditingController();
-    Once.runOnce(
-      'update-checker',
-      callback: () {
-        checkVersion(context,true);
-      },
-    );
-
+    checkVersion(context,false);
     super.initState();
   }
 
